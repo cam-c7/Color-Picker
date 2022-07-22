@@ -10,7 +10,7 @@ import acm.graphics.*;
 import java.awt.event.*;
 
 public class ColorPicker_v4_demo extends GraphicsProgram {
-//runs from strings inputted by user
+	//runs from strings inputted by user
 	private int redValue;
 	private int greenValue;
 	private int blueValue;
@@ -41,12 +41,12 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 	private GOval nextButton;
 	private GLabel nextText;
 	private boolean GO_TO_NEXT= false;
-	
+
 	public void run() {
-		
-		String[] colors = new String[] {"87CEEB", "967BB6", "DDBCBC", "E2B330", "AA4A44", "009E60", "F28500", "8591A2", "211338"};
-		String[] colorNames = new String[] {"Sky Blue", "Lavender", "Fizzing Whizbees", "Buttercup Yellow", "Brick", "Shamrock", "Tangerine", "Fantasy Romance", "Purple Obsidian"};
-	
+
+		String[] colors = new String[] {"87CEEB", "967BB6", "DDBCBC", "E2B330", "AA4A44", "009E60", "F28500", "8591A2", "211338", "FFFAFA"};
+		String[] colorNames = new String[] {"Sky Blue", "Lavender", "Fizzing Whizbees", "Buttercup Yellow", "Brick", "Shamrock", "Tangerine", "Fantasy Romance", "Purple Obsidian", "Snowfall"};
+
 		int score = 0;
 		//set up canvas
 		setSize(800, 700);
@@ -65,12 +65,12 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 			}
 			//hex for debugging
 			println(hexColor);
-			
+
 			//set user's values to white for user selected color
 			redValue = 255;
 			greenValue = 255;
 			blueValue = 255;
-			
+
 			//drawing sliders
 			sliderDrawer (RED_SLIDER_Y, Color.RED);
 			sliderDrawer (GREEN_SLIDER_Y, Color.GREEN);
@@ -163,14 +163,14 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 			}
 			//HEX TO RGB CONVERTOR
 			int actualRedValue = Integer.valueOf( hexColor.substring( 0, 2 ), 16 );
-            int actualGreenValue = Integer.valueOf( hexColor.substring(2, 4 ), 16 );
-            int actualBlueValue = Integer.valueOf( hexColor.substring(4, 6), 16);
+			int actualGreenValue = Integer.valueOf( hexColor.substring(2, 4 ), 16 );
+			int actualBlueValue = Integer.valueOf( hexColor.substring(4, 6), 16);
 			//prints label of user's color
 			GLabel actualColorText = new GLabel("Actual Color:", 545, 140);
 			actualColorText.setFont("sans serif-20");
 			actualColorText.setColor(Color.WHITE);
 			add(actualColorText);
-            GRect actualColor = new GRect(550, 150, 100, 100);
+			GRect actualColor = new GRect(550, 150, 100, 100);
 			actualColor.setFilled(true);
 			actualColor.setFillColor(Color.decode("0x" + hexColor));
 			add(actualColor);
@@ -269,7 +269,7 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 			} 
 		}
 	}
-//methods
+	//methods
 	private void setSubmitTrue() {
 		SUBMIT = true;
 	}
@@ -301,13 +301,13 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 		}	
 		sliderDrawer(sliderYValue, rectColor);
 		if(mouseX > END_OF_SLIDER+25) {
-		//draws slider circle on top
+			//draws slider circle on top
 			boxDrawer(END_OF_SLIDER, sliderYValue);
 		} else if (mouseX < SLIDER_X+25) {
-		//draws slider circle on bottom
+			//draws slider circle on bottom
 			boxDrawer(SLIDER_X, sliderYValue);
 		} else {
-		//draws slider circle in line with mouse
+			//draws slider circle in line with mouse
 			boxDrawer((int)mouseX-25, sliderYValue);
 		}
 		return colorValue;
