@@ -8,10 +8,6 @@ import acm.program.*;
 import java.awt.*;
 import acm.graphics.*;
 import java.awt.event.*;
-import java.io.*;
-import java.nio.charset.*;
-import java.nio.file.*;
-import acm.util.*;
 
 public class ColorPicker_v4_demo extends GraphicsProgram {
 //runs from strings inputted by user
@@ -42,7 +38,6 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 	//various other fields and global variables
 	public boolean SUBMIT = false;
 	private static final int SCORE_X = 350;
-	private static final int DIFFICULTY = 100;
 	private GOval nextButton;
 	private GLabel nextText;
 	private boolean GO_TO_NEXT= false;
