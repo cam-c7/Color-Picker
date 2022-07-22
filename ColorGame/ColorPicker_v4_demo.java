@@ -1,6 +1,6 @@
 /* This is Color Picker v4.1
- * By Cameron Coen
- * Method to extract color names and hex values from .txt file by Grant Gardner
+ * By @cam-c7
+ * Method to extract color names and hex values from .txt file by @g2-games
  * Text file containing 29,780 colors and their hex values from 
  * https://github.com/meodai/color-names 
  */
@@ -48,22 +48,10 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 	private boolean GO_TO_NEXT= false;
 	
 	public void run() {
-		//set up from txt file
-		/* String[] colorsArray = readTextFile();	
-		set up from in-code array */
 		
-		//TODO add colors
-		/*
-		 * beige, dark maroon, emerald, buttercup yellow, sea green, turquoise, goldenrod
-		 * frost, parchment, oat, beige, butter, pineapple, tangerine, amber, brick, jam
-		 * sky, peacock, pine tree, crocodile, gingerbread, cinnamon, fossil, slate, obsidian, soot
-		 */
 		String[] colors = new String[] {"87CEEB", "967BB6", "DDBCBC", "E2B330", "AA4A44", "009E60", "F28500", "8591A2", "211338"};
 		String[] colorNames = new String[] {"Sky Blue", "Lavender", "Fizzing Whizbees", "Buttercup Yellow", "Brick", "Shamrock", "Tangerine", "Fantasy Romance", "Purple Obsidian"};
-		
-		
-		//initialize random generator & score value
-		//RandomGenerator rgen = RandomGenerator.getInstance();
+	
 		int score = 0;
 		//set up canvas
 		setSize(800, 700);
@@ -72,17 +60,9 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 		int random = 0;
 		//while loop that repeats for each new color(aka new round), continues forever
 		while (true) {
-			//generate random number to get color name and hex from txt file, then store
-			/* int randomColorNum = rgen.nextInt((colorsArray.length)/2)*2;
-			String randomColor = colorsArray[randomColorNum+1];
-			String randomColorName = colorsArray[randomColorNum];
-			String[] colorsArrayFinal = {randomColor, randomColorName}; */
-			//generate random number for in-code array, then store
-			/* int random = rgen.nextInt(0,colors.length-1); */
-			
 			//set colors
-			String hexColor = colors[random]; //change to colors[random] or colorsArrayFinal[0]
-			String colorName = colorNames[random]; //change to colorNames[random] or colorsArrayFinal[1]
+			String hexColor = colors[random];
+			String colorName = colorNames[random];
 			if(random < colors.length-1) {
 				random ++;
 			} else {
@@ -351,30 +331,6 @@ public class ColorPicker_v4_demo extends GraphicsProgram {
 		startingBox.setColor(Color.GRAY);
 		add(startingBox);
 	}
-	/*
-	//function to initially read text file
-	private String[] readTextFile() {	
-		String[] colorsArray = {};
-		boolean read = false;
-		try {
-			if(!read) {
-				colorsArray = readFile("nobreakcolor.txt");
-				read = true;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return(colorsArray);
-	}
-	//converts text file into array
-	String[] readFile(String path) throws IOException {
-		byte[] encoded = Files.readAllBytes(Paths.get(path));
-		String colors = new String(encoded, StandardCharsets.UTF_8);
-		String[] colorList = colors.split(",[ ]*");
-
-		return colorList;
-	}
-	*/
 	//calculates score for each color value
 	private int calculateScore(int score, int actualColorValue, int colorValue) {
 		if(calculateScoreTotal(actualColorValue, colorValue) > 0) {
